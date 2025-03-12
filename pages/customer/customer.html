@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/customer.css">
+  <title>Customer Management - Mos Burger</title>
+
+</head>
+
+<body>
+  <nav class="navbar">
+    <a href="#" class="logo">Mos Burger</a>
+    <div class="nav-links">
+      <a href="/index.html" class="nav-link">Home</a>
+      <a href="/pages/product.html" class="nav-link">Menu</a>
+      <a href="/pages/cart.html" class="nav-link">Cart</a>
+      <a href="customer.html" class="nav-link">Customer</a>
+      <a href="#" class="nav-link">About</a>
+      <a href="#" class="nav-link">Contact</a>
+    </div>
+  </nav>
+
+  <h2 class="page-title">Customer Management</h2>
+
+  <div class="customer-container">
+    <div class="customer-form-container">
+      <div class="glass-card">
+        <h3 class="form-title">Add New Customer</h3>
+        <form>
+          <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" class="form-control" placeholder="Enter full name">
+          </div>
+
+
+        
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="text" id="number" class="form-control" placeholder="Enter phone number">
+          </div>
+
+          
+          <div class="form-group">
+            <label for="phone">Address</label>
+            <input type="text" id="address" class="form-control" placeholder="Enter your address">
+          </div>
+
+          
+
+
+          <button  onclick="add()"  class="btn">Add Customer</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="customer-table-container">
+      <div class="glass-card">
+        <h3 class="table-title">Customer List</h3>
+
+        <div class="search-container">
+          <input type="text" id="search" class="search-input" placeholder="Search customers...">
+          <button onclick="serch()" class="search-btn">Search</button>
+        </div>
+
+        <div style="overflow-x: auto;">
+          <table class="customers-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>address</th>
+              </tr>
+            </thead>
+            <tbody id="tblbody">
+             
+         
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script src="customer.js"></script>
+</body>
+
+</html>
