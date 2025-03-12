@@ -154,7 +154,6 @@ function btnaddcart(id , name , price , discount ,image, qty ){
     "price": price,
     "qty": qty,
     "discount": discount,
-    "availabillity": "not Placed",
     "image":  image
   });
   
