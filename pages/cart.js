@@ -12,12 +12,8 @@ function getCart() {
     method: "GET"
   };
 
-
   let cart = document.getElementById("cartitems");
-
   const additems = new Set();
-
-
   fetch("http://localhost:8080/cart/cartproduct", requestOptions)
     .then((response) => response.json())
     .then((result) => {
@@ -25,7 +21,6 @@ function getCart() {
       result.forEach(data => {
 
         cart.innerHTML += ""
-
 
         let discount = data.price - (data.price / 100 * data.discount)
         let total = discount * data.qty
@@ -48,7 +43,7 @@ function getCart() {
         <div class="cart-item-actions">
           <div class="quantity-selector">
           </div>
-          <button class="remove-btn" onclick="remove()">Remove</button>
+          <button class="remove-btn" onclick="remove('${data.productID}')">Remove</button>
         </div>
       </div>
     </div>`
@@ -73,28 +68,24 @@ function getCart() {
 }
 
 
-
-
-
-
-
-
-
-
-
 function place() {
 
   document.getElementById("popupModal").style.display = "block";
 
 
   document.getElementById("popupModal").innerHTML = `
-   <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <h2>Enter Customer phone number</h2>
-            <input type="text" name="" id="cusnumber">
-            <button class="checkout-btn" onclick="closeModal()">cancel</button>
-              <button class="checkout-btn" onclick="placeorder()">place</button>
+   <div id="popupModal" class="modal-overlay">
+  <div class="modal-box">
+   
+    <h2 class="modal-title">Enter Customer Phone Number</h2>
+    <input type="tel" class="modal-input" id="cusnumber" placeholder="Enter phone number">
+    <div class="modal-buttons">
+      <button class="modal-btn cancel-btn" onclick="closeModal()">Cancel</button>
+      <button class="modal-btn confirm-btn" onclick="placeorder()">Place</button>
     </div>
+  </div>
+</div>
+
 
   `
 
@@ -110,20 +101,22 @@ function closeModal() {
 
 }
 
-
-
-
-
-
-
-
-
 ////////////////Place Order ///////////////////////////////
 
 function placeorder() {
 
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You won't Place this Order!",
+    icon: "question",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, Place!"
+  }).then((result) => {
 
-  const date = new Date();
+
+    const date = new Date();
 
   let orderDetails = [];
   let isPlaced = false;
@@ -153,8 +146,14 @@ function placeorder() {
         const myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
+        closeModal()
         if (cartArray.length === 0) {
-          console.error("Cart is empty");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: "Your cart is empty! Add some delicious burgers before placing an order.",
+            footer: '<a href="product.html">Browse our menu and grab your favorite!</a>'
+          });
           return;
         }
 
@@ -173,7 +172,7 @@ function placeorder() {
           });
         });
 
-
+       
         const raw = JSON.stringify({
           customerID: customerid,
           total: all,
@@ -204,6 +203,9 @@ function placeorder() {
               fetch("http://localhost:8080/cart/delete/All", requestOptions)
                 .then((response) => response.text())
                 .then((result) => {
+
+
+                  //clear krnw cart array ek nttm page ek refresh krnn one ayin wen ewa pennhn 
                   cartArray = [];
                   document.getElementById("cartitems").innerHTML = "";
                   document.getElementById("totalamount").innerText = "Rs: 0";
@@ -219,4 +221,51 @@ function placeorder() {
 
       }
     })
+    if (result.isConfirmed) {
+      Swal.fire({
+        title: "Placed!",
+        text: "Your Order has been Placed.",
+        icon: "success"
+      });
+    }
+  });
+}
+
+
+function remove(id){
+
+
+  Swal.fire({
+    title: "Are you sure?",
+    text: "You wont to remove this!",
+    icon: "warning",
+    showCancelButton: true,
+    confirmButtonColor: "#3085d6",
+    cancelButtonColor: "#d33",
+    confirmButtonText: "Yes, remove it!"
+  }).then((result) => {
+     const requestOptions = {
+    method: "DELETE",
+    redirect: "follow"
+  };
+  
+  fetch("http://localhost:8080/cart/delete/"+id, requestOptions)
+    .then((response) => response.text())
+    .then((result) => console.log(result))
+    .catch((error) => console.error(error));
+    if (result.isConfirmed) {
+    
+      Swal.fire({
+        title: "Deleted!",
+        text: "Your Products have been Deleted.",
+        icon: "success"
+      }).then(() => {
+        window.location.reload();
+      });
+    }
+  });
+
+
+
+ 
 }

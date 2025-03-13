@@ -1,6 +1,4 @@
 getAll()
-
-
 function getAll(){
 
     const requestOptions = {
@@ -33,7 +31,6 @@ function getAll(){
         .catch((error) => console.error(error));
 
 }
-
 function serch(){
 const id = document.getElementById("search").value
     const raw = "";
@@ -67,35 +64,6 @@ const id = document.getElementById("search").value
 
 
 }
-
-
-function add(){
-  const myHeaders = new Headers();
-  myHeaders.append("Content-Type", "application/json");
-  
-  const raw = JSON.stringify({
-   
-    "name": "ranugi",
-    "number": "345",
-    "address": "Horana"
-  });
-  
-  const requestOptions = {
-    method: "POST",
-    headers: myHeaders,
-    body: raw,
-    redirect: "follow"
-  };
-  
-  fetch("http://localhost:8080/customer/add", requestOptions)
-    .then((response) => response.text())
-    .then((result) => console.log(result))
-    .catch((error) => console.error(error));
-
-}
-
-
-
 function deletecustomer(id){
     const requestOptions = {
         method: "DELETE",
@@ -108,5 +76,8 @@ function deletecustomer(id){
         .then((result) => console.log(result))
         .catch((error) => console.error(error));
 }
-
 function update(){}
+function add(){
+  console.log("add");
+  
+}
