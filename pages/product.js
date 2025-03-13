@@ -23,8 +23,7 @@ function allProducts() {
 
                 <button onclick="openModal('${data.id}')" class="add-cart">Add to Cart</button>
                 <div class="action-buttons">
-                  <button onclick="update()" class="icon edit-btn"><i class="fas fa-edit"></i></button>
-                  <button onclick="remove('${data.id}')" class="icon delete-btn"><i class="fas fa-trash"></i></button>
+                 
                 </div>
               </div>
             </div>
@@ -99,8 +98,7 @@ document.getElementById("btnserch").addEventListener("click", function serch() {
               <div class="product-footer">
                 <button onclick="openModal('${data.id}')" class="add-cart">Add to Cart</button>
                 <div class="action-buttons">
-                  <button onclick="update()" class="icon edit-btn"><i class="fas fa-edit"></i></button>
-                  <button onclick="remove('${data.id}')" class="icon delete-btn"><i class="fas fa-trash"></i></button>
+
                 </div>
               </div>
             </div>
