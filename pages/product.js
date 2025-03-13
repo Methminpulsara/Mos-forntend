@@ -20,7 +20,12 @@ function allProducts() {
               <p class="product-price">Rs : ${data.price}</p>
               <p class="product-desc">Discount : ${data.discount} %</p>
               <div class="product-footer">
+
                 <button onclick="openModal('${data.id}')" class="add-cart">Add to Cart</button>
+                <div class="action-buttons">
+                  <button onclick="update()" class="icon edit-btn"><i class="fas fa-edit"></i></button>
+                  <button onclick="remove('${data.id}')" class="icon delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
               </div>
             </div>
           </div>
@@ -63,6 +68,7 @@ function addToCart(id, name, price, discount, image) {
   closeModal(id);
 }
 
+//serch btn
 document.getElementById("btnserch").addEventListener("click", function serch() {
   const items = document.getElementById("items");
   items.innerHTML = "";
@@ -92,7 +98,10 @@ document.getElementById("btnserch").addEventListener("click", function serch() {
               <p class="product-desc">Discount : ${data.discount} %</p>
               <div class="product-footer">
                 <button onclick="openModal('${data.id}')" class="add-cart">Add to Cart</button>
-                
+                <div class="action-buttons">
+                  <button onclick="update()" class="icon edit-btn"><i class="fas fa-edit"></i></button>
+                  <button onclick="remove('${data.id}')" class="icon delete-btn"><i class="fas fa-trash"></i></button>
+                </div>
               </div>
             </div>
           </div>
@@ -119,6 +128,7 @@ document.getElementById("btnserch").addEventListener("click", function serch() {
       });
     });
 });
+//
 
 function btnaddcart(id, name, price, discount, image, qty) {
   const additems = new Set();
@@ -167,4 +177,10 @@ function btnaddcart(id, name, price, discount, image, qty) {
       }
     })
     .catch((error) => console.error(error));
+}
+
+function update (){console.log("udapte");
+}
+
+function remove (id){console.log(id);
 }

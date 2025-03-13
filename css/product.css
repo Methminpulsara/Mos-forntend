@@ -12,7 +12,94 @@
     overflow-x: hidden;
   }
 
-
+  .product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Main add to cart button */
+  .add-cart {
+    background: rgba(255, 127, 0, 0.8);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    box-shadow: 0 4px 10px rgba(255, 127, 0, 0.3);
+    flex-grow: 1;
+    margin-right: 10px;
+  }
+  
+  .add-cart:hover {
+    background: rgba(255, 69, 0, 0.9);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 69, 0, 0.4);
+  }
+  
+  /* Action buttons group */
+  .action-buttons {
+    display: flex;
+    gap: 8px;
+  }
+  
+  /* Edit button specific styling */
+  .icon.edit-btn {
+    background: rgba(52, 152, 219, 0.3);
+    color: #3498db;
+    border: 1px solid rgba(52, 152, 219, 0.2);
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon.edit-btn:hover {
+    background: rgba(52, 152, 219, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(52, 152, 219, 0.3);
+  }
+  
+  /* Delete button specific styling */
+  .icon.delete-btn {
+    background: rgba(231, 76, 60, 0.3);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.2);
+    border-radius: 10px;
+    padding: 0.5rem;
+    cursor: pointer;
+    font-weight: 600;
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    transition: all 0.3s ease;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon.delete-btn:hover {
+    background: rgba(231, 76, 60, 0.5);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(231, 76, 60, 0.3);
+  }
   .navbar {
     display: flex;
     justify-content: space-between;
