@@ -2,11 +2,6 @@
 getCart()
 let all = 0;
 let cartArray = []
-
-
-
-
-
 function getCart() {
   const requestOptions = {
     method: "GET"
@@ -66,8 +61,6 @@ function getCart() {
     })
     .catch((error) => console.error(error));
 }
-
-
 function place() {
 
   document.getElementById("popupModal").style.display = "block";
@@ -91,7 +84,6 @@ function place() {
 
 
 }
-
 function closeModal() {
   document.getElementById("popupModal").style.display = "none";
 
@@ -100,9 +92,7 @@ function closeModal() {
 
 
 }
-
 ////////////////Place Order ///////////////////////////////
-
 function placeorder() {
 
   Swal.fire({
@@ -230,8 +220,6 @@ function placeorder() {
     }
   });
 }
-
-
 function remove(id){
 
 

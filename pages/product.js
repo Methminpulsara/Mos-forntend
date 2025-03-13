@@ -25,8 +25,8 @@ function allProducts() {
             </div>
           </div>
 
-          <!-- Simple Modal -->
-          <div id="modal-${data.id}" class="modal" style="display: none;">
+         
+  <div id="modal-${data.id}" class="modal" style="display: none;">
   <div class="modal-content">
     <div class="modal-header">
       <h1 class="modal-title">Add to Cart</h1>
