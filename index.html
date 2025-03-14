@@ -1,97 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Modern Burger Shop</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="icon" href="favicon_io/favicon.ico" type="image/x-icon">
 
-  <link rel="stylesheet" href="css/style.css">
-  <style>
+    <link rel="stylesheet" href="css/singin.css">
+    <title>Burger Shop - Sign In</title>
    
-  </style>
 </head>
-
 <body>
-  <nav class="navbar">
-    <a href="#" class="logo">Mos Burger</a>
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="pages/product.html" class="nav-link">Menu</a>
-      <a href="pages/cart.html" class="nav-link">Cart</a>
-      <a href="pages/customer/customer.html" class="nav-link">Customer</a>
-      <a href="pages/order/order.html" class="nav-link">Order History</a>
-      <a href="#" class="nav-link">About</a>
-      <a href="#" class="nav-link">Contact</a>
+    <div class="floating-shapes">
+        <div class="shape"></div>
+        <div class="shape"></div>
+        <div class="shape"></div>
     </div>
-  </nav>
-  
-  <section class="hero">
-    <div class="hero-content glass-card">
-      <h1>The Ultimate Burger Experience</h1>
-      <p>Handcrafted premium burgers made with locally sourced ingredients. Our artisanal approach brings flavor to a whole new level.</p>
-      
-      <a href="pages/product.html"><input class="btn outline" type="button" value="View Menu " ></a>
-    </div>
-    <div class="hero-image">
-      <img src="img/burgerHomepage.jpg" alt="Delicious Burger">
-    </div>
-  </section>
-  
 
-  
-  <section class="special-offer">
-    <div class="special-offer-container">
-      <div class="special-content glass-card">
-        <h2 class="special-title">Limited Time Offer</h2>
-        <p class="special-desc">Try our new Double Truffle Deluxe burger featuring premium beef, truffle mayo, caramelized onions, and aged cheddar. Available for a limited time only.</p>
-        <a href="#" class="btn">Get it Now</a>
-      </div>
-      <div class="special-image">
-        <!-- <img src="/api/placeholder/500/400" alt="Special Burger"> -->
-      </div>
-    </div>
-  </section>
-  
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-column">
-        <h3>BURGENZA</h3>
-        <p>Premium burgers crafted with passion and quality ingredients for an unforgettable taste experience.</p>
-        <div class="social-links">
-          <a href="#">FB</a>
-          <a href="#">IG</a>
-          <a href="#">TW</a>
+    <div class="container">
+        <div class="login-box">
+            <div class="login-header">
+                <img src="img/cheese-burger-7323672_1280.jpg" alt="Burger Logo" class="burger-logo">
+                <h1>Burger Shop</h1>
+                <p>Sign in to your account</p>
+            </div>
+            
+            <form>
+                <div class="input-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="youremail@example.com" required>
+                </div>
+                
+                <div class="input-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" placeholder="Enter your password" required>
+                </div>
+                
+                <div class="remember-forgot">
+                    <label>
+                        <input type="checkbox"> Remember me
+                    </label>
+                    <a >Forgot password?</a>
+                </div>
+                
+                <button type="button" onclick="login()" class="login-button">SIGN IN</button>
+            </form>
+            
+            <div class="social-login">
+                <p>Or sign in with</p>
+                <div class="social-icons">
+                    <a  class="social-icon">f</a>
+                    <a  class="social-icon">G</a>
+                    <a  class="social-icon">in</a>
+                </div>
+            </div>
+            
+            <div class="signup-link">
+                Don't have an account? <a href="#">Sign up</a>
+            </div>
         </div>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Hours</h3>
-        <p>Monday - Thursday: 11am - 10pm</p>
-        <p>Friday - Saturday: 11am - 12am</p>
-        <p>Sunday: 12pm - 9pm</p>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Contact Us</h3>
-        <p>123 Burger Street, Foodville</p>
-        <p>Phone: (555) 123-4567</p>
-        <p>Email: info@burgenza.com</p>
-      </div>
-      
-      <div class="footer-column">
-        <h3>Quick Links</h3>
-        <a href="#">Our Story</a>
-        <a href="#">Careers</a>
-        <a href="#">Franchise</a>
-        <a href="#">Privacy Policy</a>
-        <a href="#">Terms of Service</a>
-      </div>
     </div>
-    
-    <div class="copyright">
-      <p>&copy; 2025 BURGENZA. All rights reserved.</p>
-    </div>
-  </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="app.js"></script>
 </body>
-</html>--
+</html>

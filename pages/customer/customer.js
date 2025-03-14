@@ -107,7 +107,7 @@ async function update(id){
   const cusID = id ;
 
   const { value: formValues } = await Swal.fire({
-    title: "Multiple inputs",
+    title: "Update Customer ",
     html: `
       <input id="upname" class="swal2-input" placeholder="Enter name">
       <input id="upnumber" class="swal2-input" placeholder="Enter phone number">

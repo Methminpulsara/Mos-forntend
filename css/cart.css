@@ -347,11 +347,12 @@
 }
 
 .cart-summary {
-  background: white;
+  background: rgba(232, 232, 232, 0.722);
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   padding: 1.5rem;
   margin-top: 2rem;
+  border:solid wheat 1px;
 }
 
 .summary-row {
