@@ -105,15 +105,18 @@ function placeorder() {
     confirmButtonText: "Yes, Place!"
   }).then((result) => {
 
+    if (result.isConfirmed){
 
-    const date = new Date();
+      
+      const date = new Date();
 
-  let orderDetails = [];
-  let isPlaced = false;
+      let orderDetails = [];
+      let isPlaced = false;
+    
+      let month = date.getMonth() + 1;
+      let orderdate = date.getFullYear() + "-" + month + "-" + date.getDate()
+      let customerid;
 
-  let month = date.getMonth() + 1;
-  let orderdate = date.getFullYear() + "-" + month + "-" + date.getDate()
-  let customerid;
 
   const requestOptions = {
     method: "GET",
@@ -128,8 +131,7 @@ function placeorder() {
     .then((data) => {
       customerid = data.id
       if (customerid != null) {
-        console.log(customerid);
-
+       
 
 
 
@@ -218,6 +220,8 @@ function placeorder() {
         icon: "success"
       });
     }
+}
+
   });
 }
 function remove(id){

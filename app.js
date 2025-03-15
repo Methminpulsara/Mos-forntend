@@ -41,7 +41,7 @@ function login() {
                    
             })
 
-            window.close()
+            
            
 
         })
