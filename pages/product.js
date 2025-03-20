@@ -22,6 +22,7 @@ function allProducts() {
               <div class="product-footer">
 
                 <button onclick="openModal('${data.id}')" class="add-cart">Add to Cart</button>
+              
                 <div class="action-buttons">
                  
                 </div>
@@ -177,8 +178,59 @@ function btnaddcart(id, name, price, discount, image, qty) {
     .catch((error) => console.error(error));
 }
 
-function update (){console.log("udapte");
+function update (){console.log("update");
 }
 
 function remove (id){console.log(id);
 }
+
+
+async function add(){
+
+
+  const { value: formValues } = await Swal.fire({
+    title: "Update Customer ",
+    html: `
+      <input id="newname" class="swal2-input" placeholder="Enter Name">
+      <input id="newdis" class="swal2-input" placeholder="Enter Discount number">
+      <input id="newprice" class="swal2-input" placeholder="Enter Unit price">
+      <input id="newtype" class="swal2-input" placeholder="Enter Type">
+      <input id="newimgage" class="swal2-input" placeholder="Enter imgae url">
+      
+    `,
+    focusConfirm: false,
+    preConfirm: () => {
+
+      const myHeaders = new Headers();
+myHeaders.append("Content-Type", "application/json");
+
+const raw = JSON.stringify({
+  "name": document.getElementById("newname").value,
+  "price": document.getElementById("newprice").value,
+  "discount": document.getElementById("newdis").value,
+  "type": document.getElementById("newtype").value,
+  "availability": "have",
+  "image": document.getElementById("newimgage").value
+});
+
+const requestOptions = {
+  method: "POST",
+  headers: myHeaders,
+  body: raw,
+  redirect: "follow"
+};
+
+fetch("http://localhost:8080/product/add", requestOptions)
+  .then((response) => response.text())
+  .then((result) => console.log(result))
+  .catch((error) => console.error(error));
+
+    }
+  });
+
+
+
+
+
+}
+
